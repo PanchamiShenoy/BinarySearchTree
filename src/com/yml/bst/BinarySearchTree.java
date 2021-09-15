@@ -9,6 +9,7 @@ public class BinarySearchTree<K extends Comparable<K>> {
 
 	/**
 	 * method to add new node into the binary search tree
+	 * 
 	 * @param current
 	 * @param key
 	 * @return
@@ -28,12 +29,27 @@ public class BinarySearchTree<K extends Comparable<K>> {
 		return current;
 	}
 
+	public int getSize() {
+		return this.getSizeRecursive(root);
+	}
+
+	/**
+	 * method to get the size of the tree
+	 * 
+	 * @param current
+	 * @return
+	 */
+	private int getSizeRecursive(BinaryNode<K> current) {
+		return current == null ? 0 : 1 + this.getSizeRecursive(current.left) + this.getSizeRecursive(current.right);
+	}
+
 	public void printNodes() {
 		printNodes(root);
 	}
 
 	/**
 	 * method to display nodes of binary search tree
+	 * 
 	 * @param root
 	 */
 	private void printNodes(BinaryNode<K> root) {
